@@ -1,0 +1,9 @@
+-- Create all feedback table
+CREATE TABLE IF NOT EXISTS feedback (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(50) NOT NULL,
+  email VARCHAR(100) NOT NULL,
+  feedback_body TEXT NOT NULL,
+  responded_to BOOLEAN NOT NULL DEFAULT 0,
+  received TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

@@ -1,0 +1,19 @@
+# Use the official Python image
+FROM python:3.8
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy the current directory contents into the container at /app
+COPY message_broker.py .
+
+# Install any needed packages specified in requirements.txt
+RUN pip install pika
+RUN pip install Flask
+RUN pip install Flask-CORS
+
+# Expose the port the app runs on
+EXPOSE 3750
+
+# Start Flask application
+CMD ["python3", "message_broker.py"]

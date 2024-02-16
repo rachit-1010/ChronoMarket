@@ -1,0 +1,5 @@
+# Use the official RabbitMQ image
+FROM rabbitmq:3-management
+
+# Expose ports for RabbitMQ
+EXPOSE 3700 15672 5672

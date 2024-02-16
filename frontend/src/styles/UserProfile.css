@@ -1,0 +1,49 @@
+/* Login and Sign up pages */
+.update-info {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
+}
+
+.update-info label {
+  grid-column: 1;
+  align-self: center;
+  padding-right: 10px;
+}
+
+.update-info input {
+  grid-column: 2;
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.update-info button {
+  grid-column: 3;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  text-decoration: none; /* Remove underline from links */
+}
+
+.accessSite {
+  margin: auto;
+  margin-top: 100px;
+  width: 375px;
+  text-align: center; /* Center the content */
+}
+
+#suspendAccount,
+#deleteAccount {
+  background-color: #FF8300;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 20px; /* Adjusted margin to separate from the buttons above */
+}

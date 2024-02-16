@@ -1,0 +1,42 @@
+.navigation-bar {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f2f2f2; /* You can change this as per your design */
+}
+
+.navigation-bar .nav-link {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  text-decoration: none; /* Remove underline from links */
+  display: inline-block; /* Align properly with padding and margin */
+}
+
+.navigation-bar .nav-link:hover {
+  background-color: #0056b3;
+}
+
+.navigation-bar .nav-link img {
+  height: 20px;
+  width: 20px;
+  vertical-align: middle;
+}
+
+#logout-button {
+  font-size: 16px;
+}
+
+#logout-button:hover {
+  background-color: #007bff; /* Logout button color on hover */
+}
+
+.username-text {
+  margin-left: auto !important;
+}

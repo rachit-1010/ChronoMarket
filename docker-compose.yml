@@ -1,0 +1,157 @@
+version: "3.9"
+services:
+  # API gateway
+  gateway:
+    build:
+      context: ./api-gateway
+    restart: always
+    container_name: "gateway-server"
+    ports:
+      - 3500:3500 # Map container port 3500 to host port 3500
+    depends_on:
+      - mysql-accounts
+      - mysql-auctions
+      - mysql-items
+      - mysql-feedback
+
+  # Accounts microservice MySQL database
+  mysql-accounts:
+    restart: always
+    container_name: "accounts-mysql"
+    image: mysql:latest
+    ports:
+      - 3406:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=mysql
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+    volumes:
+      - ./microservices/accounts/accounts-data:/var/lib/mysql # persistent data volume
+      - ./microservices/accounts/accounts-schema.sql:/docker-entrypoint-initdb.d/schema.sql
+
+  # Auctions microservice MySQL database
+  mysql-auctions:
+    restart: always
+    container_name: "auctions-mysql"
+    image: mysql:latest
+    ports:
+      - 4099:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=mysql
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+    volumes:
+      - ./microservices/auction_platform/auctions-data:/var/lib/mysql
+      - ./microservices/auction_platform/auctions-schema.sql:/docker-entrypoint-initdb.d/schema.sql
+
+  # Items MySQL databse
+  mysql-items:
+    restart: always
+    container_name: "items-mysql"
+    image: mysql:latest
+    ports:
+      - 6001:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=mysql
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+    volumes:
+      - ./microservices/items/items-data:/var/lib/mysql
+      - ./microservices/items/items-schema.sql:/docker-entrypoint-initdb.d/schema.sql
+
+  
+  # MySQL Feedback (Notifications)
+  mysql-feedback:
+    restart: always
+    container_name: "feedback-mysql"
+    image: mysql:latest
+    ports:
+      - 7887:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=mysql
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+    volumes:
+      - ./microservices/notifications/feedback-data:/var/lib/mysql # persistent data volume
+      - ./microservices/notifications/notifications-schema.sql:/docker-entrypoint-initdb.d/schema.sql
+
+  # rabbitMq message broker
+  rabbitmq-broker:
+    container_name: "rabbitmq-broker"
+    build:
+      context: ./microservices/message-broker
+      dockerfile: Dockerfile_rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  # Flask server for RabbitMQ
+  rabbitmq-flask:
+    restart: always
+    container_name: "rabbitmq-flask-server"
+    build:
+      context: ./microservices/message-broker
+      dockerfile: Dockerfile_flask
+    ports:
+      - "3750:3750"
+    depends_on:
+      - rabbitmq-broker
+
+  # frontend Node.js server
+  web-app-server:
+    build:
+      context: ./frontend # Dockerfile context
+    restart: always
+    container_name: "web-app-server"
+    ports:
+      - 3000:3000 # Map container port 3000 to host port 3000
+    depends_on:
+      - gateway
+
+  # Notifications consumer service
+  notifications-consumer:
+    container_name: "consumer-notifications"
+    build:
+      context: ./microservices/notifications
+      dockerfile: Dockerfile_notifications
+    depends_on:
+      - rabbitmq-broker
+
+  # Bidding consumer service
+  bidding-consumer:
+    container_name: "consumer-bidding"
+    build:
+      context: ./microservices/bidding
+      dockerfile: Dockerfile_bidding
+    depends_on:
+      - rabbitmq-broker
+
+  # Items consumer service
+  items-consumer:
+    container_name: "consumer-items"
+    build:
+      context: ./microservices/items
+      dockerfile: Dockerfile_items
+    depends_on:
+      - rabbitmq-broker
+
+  # Redis service
+  redis-server:
+    image: redis:latest
+    container_name: "redis-server"
+    ports:
+      - "6379:6379" # Map container port 6379 to host port 6379
+    volumes:
+      - ./microservices/bidding/redis-data:/data
+
+# bound volumes for data persistence
+volumes:
+  accounts-data:
+  auctions-data:
+  items-data:
+  redis-data:
+  feedback-data:

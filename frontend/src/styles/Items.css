@@ -1,0 +1,31 @@
+.items-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.item {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  width: 200px;
+  text-align: center; /* Center the content */
+}
+
+.item img {
+  max-width: 150px; /* Make image responsive */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 5px; /* Optional: round corners */
+  border: 1px solid #ccc; /* Optional: border around the image */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: add shadow for depth */
+  transition: transform 0.3s ease; /* Optional: smooth transition for hover effect */
+}
+
+.item img:hover {
+  transform: scale(1.05); /* Optional: zoom effect on hover */
+}
+
+.item p {
+  margin: 5px 0;
+}

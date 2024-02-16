@@ -1,0 +1,16 @@
+{
+  "name": "gateway-service",
+  "version": "1.0.0",
+  "description": "Gateway service for routing requests to Flask backends",
+  "main": "gateway.js",
+  "scripts": {
+    "start": "node gateway.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "http-proxy": "^1.18.1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

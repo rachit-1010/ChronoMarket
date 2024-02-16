@@ -1,0 +1,22 @@
+.checkout-item {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin: 10px;
+  border-radius: 5px;
+  width: 80%;
+  max-width: 500px;
+}
+
+.checkout-item h3 {
+  color: #007bff;
+}
+
+.checkout-item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.checkout-item p {
+  color: #555;
+}

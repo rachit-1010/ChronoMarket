@@ -1,0 +1,54 @@
+.user-feedback-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.user-feedback {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  width: 200px;
+}
+
+.user-feedback p {
+  margin: 5px 0;
+}
+
+  /* Additional styling for layout */
+.feedbackContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.subjectContainer,
+.openTextContainer {
+  margin-bottom: 20px;
+}
+
+.customer-support-center {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.customer-support-center button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 20px; /* Add margin to the button */
+}
+  
+.customer-support-center .email-response {
+  padding: 15px; /* Adjust padding for the textarea */
+  margin-right: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 300px; /* Adjust width as needed */
+  height: 150px; /* Adjust height as needed */
+}

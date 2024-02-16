@@ -1,0 +1,84 @@
+.home-page {
+    /* Add any styles for the home-page container */
+    margin: auto;
+    padding: 20px;
+  }
+
+  #logout-button {
+    background-color: #007bff; /* Logout button color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: auto;
+    font-family: Arial, sans-serif; /* Set the font explicitly */
+  }
+  
+  #logout-button:hover {
+    background-color: #007bff; /* Logout button color on hover */
+  }
+  
+  .sections {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: auto;
+  }
+  
+   /* Section for Listed Users, Blocked Emails and Image Categories */
+  .manage-div-1 {
+    width: 30%; /* Adjust the width as needed */
+    border: 1px solid black; /* Thin black border */
+    padding: 10px; /* Add padding for better spacing */
+  }
+
+   /* Section for Flagged Items and Auction Metrics */
+  .manage-div-2 {
+    width: 45%; /* Adjust the width as needed */
+    border: 1px solid black; /* Thin black border */
+    padding: 30px; /* Add padding for better spacing */
+    margin: 20px;
+  }
+  
+  .list-objects {
+    margin-bottom: 10px; /* Vertical spacing between elements */
+  }
+  
+  .section-titles {
+    text-decoration: underline; /* Underline h3 tags */
+    font-weight: bold; /* Bold h3 tags */
+    text-align: center; 
+  }
+
+  /* Admin Metrics element */
+  #admin-metrics-div {
+    text-align: center;
+  }
+  
+  #metrics-dropdown,
+  #calculate-metrics {
+    margin: 5px; /* Add margin as needed */
+    padding: 2px; /* Add padding as needed */
+    display: inline-block;
+  }
+
+  /* Modifying the Customer Support and Live Auction buttons */
+  .buttons-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .buttons-section button {
+    padding: 20px;
+    font-size: 1em; /* Adjust the font size as needed */
+    margin: 30px 20px; /* Adjust the top/bottom and left/right margins as needed */
+    box-sizing: border-box;
+    width: 180px; /* Adjust the width as needed */
+  }
+
+.home-page h1 {
+    text-align: center;
+}

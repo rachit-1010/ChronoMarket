@@ -1,0 +1,60 @@
+/* Login and Sign up pages */
+.login {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 100%;
+  }
+  
+  .login > * {
+    padding: 4px;
+    margin: 6px;
+  }
+  
+  .login error {
+    color: gray;
+    display: none;
+  }
+  
+  .login button {
+    margin-right: auto;
+  }
+
+  #logo-image {
+    width: 200px; /* Set the width to your desired size */
+    height: auto; /* Maintain aspect ratio */
+    margin: 20px 20px;
+  }
+
+.register {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 100%;
+  }
+  
+  .register > * {
+    padding: 4px;
+    margin: 6px;
+  }
+  
+  .register error {
+    color: gray;
+    display: none;
+  }
+  
+  .register button {
+    margin-right: auto;
+  }
+
+.accessSite {
+    margin: auto;
+    margin-top: 100px;
+    width:375px;
+    text-align: center;
+}
+
+.accessSite span {
+  font-size: 18px;
+}
+
+.register { 
+    margin-top: 20px;
+    text-align: center;
+}

@@ -1,0 +1,54 @@
+.customerSupport {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.customerSupport #return-email {
+  padding: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 200px; /* Adjust width as needed */
+}
+
+.customerSupport .user-feedback {
+  padding: 15px; /* Adjust padding for the textarea */
+  margin-right: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 300px; /* Adjust width as needed */
+  height: 150px; /* Adjust height as needed */
+}
+
+.customerSupport button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 20px; /* Add margin to the button */
+}
+
+.customerSupport h1 {
+  text-align: center;
+}
+
+.customerSupport span {
+  font-size: 16px;
+  margin-bottom: 20px; /* Increase margin-bottom for more space */
+}
+
+/* Additional styling for layout */
+.feedbackContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.emailContainer,
+.openTextContainer {
+  margin-bottom: 20px;
+}
